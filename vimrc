@@ -19,6 +19,9 @@ Plugin 'VundleVim/Vundle.vim'
 "
 " original repos on GitHub
 "
+Plugin 'zhimsel/vim-stay'
+Plugin 'Konfekt/FastFold'
+Plugin 'Konfekt/FoldText'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/greenvision'
 Plugin 'camgunz/amber'
@@ -89,6 +92,27 @@ filetype plugin indent on
 nnoremap <silent> <Leader>mz <Plug>VimroomToggle
 nnoremap <silent> <Leader>n  :cn
 nnoremap <silent> <Leader>p  :cp
+
+
+
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+
+
+let g:markdown_folding = 1
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+let g:ruby_fold = 1
+let g:perl_fold = 1
+let g:perl_fold_blocks = 1
+let g:r_syntax_folding = 1
+let g:rust_fold = 1
+let g:php_folding = 1
 
 
 filetype plugin indent on     " required!
@@ -276,15 +300,17 @@ vnoremap <c-s> <c-c>:update<CR>
 inoremap <c-s> <c-o>:update<CR>
 
 map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
-"let g:vim_markdown_folding_disabled = 1
 " for gitlab wiki style
 let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_autowrite = 1
+let g:vim_markdown_folding_level = 1
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_override_foldtext= 1
 
-let g:vimwiki_folding='expr'
+let g:vimwiki_folding='custom'
 let g:vimwiki_table_auto_fmt = 0
  let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md' },
-			 \	{'path': '~/Documents/operations/',
+			 \	{'path': '~/Documents/Work/Operations-Docs/',
             \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -297,6 +323,4 @@ set printoptions=left:3pc,right:3pc,top:2pc,bottom:2pc
 set background=light
 colors PaperColor
 
-
-set foldmethod=indent
-set foldlevelstart=1
+set foldlevel=1
