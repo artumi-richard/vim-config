@@ -1,4 +1,3 @@
-" much of this based upon https://github.com/timss/vimconf/blob/master/.vimrc
 autocmd!
 set clipboard=unnamed
 set mouse=ar
@@ -13,28 +12,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required!
 Plugin 'VundleVim/Vundle.vim'
-" My bundles here:
-"
-" original repos on GitHub
-"
-Plugin 'zhimsel/vim-stay'
-Plugin 'Konfekt/FastFold'
-Plugin 'Konfekt/FoldText'
-Plugin 'tpope/vim-fugitive'
+
+" Themes
 Plugin 'vim-scripts/greenvision'
 Plugin 'camgunz/amber'
-Plugin 'tpope/vim-speeddating.git'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'atelierbram/vim-colors_atelier-schemes'
-" Vim's javascript indenting seems rubbish - hopefully this is the fix
-Plugin 'pangloss/vim-javascript'
-Plugin 'bruth/vim-newsprint-theme'
-" Glorious colorscheme
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'bruth/vim-newsprint-theme'
 Plugin 'croaker/mustang-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'roosta/srcery'
@@ -47,7 +33,33 @@ Plugin 'wolverian/minimal'
 Plugin 'artumi-richard/vim-colors-off'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'christoomey/vim-tmux-navigator'
+
+
+" Takes you to the same place in a file you last were
+Plugin 'zhimsel/vim-stay'
+" Recommended vim-stay line
+set viewoptions=cursor,folds,slash,unix
+
+" Stops folding being so slow it's shit
+Plugin 'Konfekt/FastFold'
+" Shows some better fold text
+Plugin 'Konfekt/FoldText'
+" Git toosl
+Plugin 'tpope/vim-fugitive'
+" cursor over a date and Ctrl-A increases and Ctrl-X decreases the bit
+" its over
+Plugin 'tpope/vim-speeddating.git'
+" Makes tables work in text nicely
+Plugin 'godlygeek/tabular'
+" Syntax for markdown
+Plugin 'plasticboy/vim-markdown'
+
+" Vim's javascript indenting seems rubbish - hopefully this is the fix
+Plugin 'pangloss/vim-javascript'
+
+" Asyncrhonous syntax highlighting
 Plugin 'w0rp/ale'
+
 let g:ale_sign_column_always = 1
 let g:ale_echo_cursor = 1
 let g:ale_open_list = 'onsave'
@@ -75,17 +87,27 @@ let g:airline_extensions = ['branch','tabline','fugitiveline','ale']
 " REQUIREMENTS: See :h Syntastic
 " Plugin 'scrooloose/syntastic'
 "
-" Edit files using sudo/su
+" Edit files using sudo/su when writing without perm do :SudoWrite
 Plugin 'chrisbra/SudoEdit.vim'
+" Fonts for the powerline
 Plugin 'Lokaltog/powerline-fonts'
+" Shows git changes ina  gutter
 Plugin 'airblade/vim-gitgutter'
+" Candidate for deletion? Used by something else?
 Plugin 'mileszs/ack.vim'
+" Candidate for deletion? Used by something else?
 Plugin 'MarcWeber/vim-addon-mw-utils'
+" Almost certainly used by something else.
 Plugin 'tomtom/tlib_vim'
+" snippet implementation
 Plugin 'garbas/vim-snipmate'
+" snippets used by the implementation
 Plugin 'artumi-richard/vim-snippets'
+"Vim understands go 
 Plugin 'fatih/vim-go'
+"Nice for writing stories and the like
 Plugin 'mikewest/vimroom'
+" Speaks for itself!
 Plugin 'vimwiki/vimwiki'
 call vundle#end()
 filetype plugin indent on
@@ -118,7 +140,7 @@ let g:php_folding = 1
 filetype plugin indent on     " required!
 
 set winminheight=0
-set winheight=999
+"set winheight=999
 
 set spell spelllang=en_gb
 set hlsearch
@@ -291,7 +313,6 @@ endfunction
 
 
 nnoremap <Leader>wc ^i- [ ] <ESC>j^
-inoremap <c-l> - [ ] 
 nnoremap <c-l> i- [ ] 
 nnoremap <Leader>wC :VimwikiTOC
 
@@ -324,3 +345,35 @@ set background=light
 colors PaperColor
 
 set foldlevel=1
+hi Terminal ctermbg=black ctermfg=lightgrey guibg=#333333 guifg=#eeeeee     
+
+
+" Emoji shortcuts
+iab :tick: ✅
+iab :warning: ⚠
+iab :bulb: 💡
+iab :pushpin: 📌
+iab :bomb: 💣
+iab :pill: 💊
+iab :construction: 🚧
+iab :pencil: 📝
+iab :point_right: 👉
+iab :book: 📖
+iab :link: 🔗
+iab :wrench: 🔧
+iab :tel: 📞
+iab :email: 📧
+iab :computer: 💻
+iab :cal: 🗓️
+iab :ok: 👌
+iab :house: 🏠
+iab :beach: 🏖️
+
+" Dates
+iab  <expr> :date: strftime("%d %b %Y")
+
+" Script start
+iab <expr> :artumi-start: "<?php\ninclude('local/o4bcrm.conf.php');\nini_set('include_path','.:'.PATH_SYSTEM);\nglobal $goManager;\n$goManager=new Manager();\n"
+
+" Vim wiki today
+iab  <expr> :today: "# 🗓️ " . strftime("%d/%m/%Y %A")

@@ -11,20 +11,22 @@ set columns=151
 
 " set guifont=Consolas\ for\ Powerline\ 11
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
-set guifont=Roboto\ Mono\ for\ Powerline\ 12
 "set guifont=monofur\ for\ Powerline\ 13
 "set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
+"set guifont=Roboto\ Mono\ for\ Powerline\ 12
+set guifont=Cascadia\ Mono\ Regular\ 12
 
 " Working Light bg
 set background=light
 colorscheme PaperColor
-AirlineTheme atomic
+"colorscheme off
+AirlineTheme Atelier_CaveLight
 
 
 " Working Dark bg - I used this for a long time.
 "set background=dark
 "colorscheme PaperColor
-AirlineTheme Atelier_DuneDark
+"AirlineTheme Atelier_DuneDark
 
 
 "set background=light
@@ -35,3 +37,4 @@ AirlineTheme Atelier_DuneDark
 "colorscheme off
 
 highlight Search guifg=black guibg=yellow
+hi Terminal ctermbg=black ctermfg=lightgrey guibg=#333333 guifg=#eeeeee     
