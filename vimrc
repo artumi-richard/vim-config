@@ -34,7 +34,7 @@ Plugin 'artumi-richard/vim-colors-off'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'christoomey/vim-tmux-navigator'
 
-
+Plugin 'epii1/phpcd.vim'
 " Takes you to the same place in a file you last were
 Plugin 'zhimsel/vim-stay'
 " Recommended vim-stay line
@@ -101,6 +101,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 " snippet implementation
 Plugin 'garbas/vim-snipmate'
+let g:snipMate = { 'snippet_version' : 1 }
 " snippets used by the implementation
 Plugin 'artumi-richard/vim-snippets'
 "Vim understands go 
@@ -109,6 +110,10 @@ Plugin 'fatih/vim-go'
 Plugin 'mikewest/vimroom'
 " Speaks for itself!
 Plugin 'vimwiki/vimwiki'
+Plugin 'kien/ctrlp.vim'
+" a grey colour scheme
+Plugin 'phucngodev/mono'
+
 call vundle#end()
 filetype plugin indent on
 nnoremap <silent> <Leader>mz <Plug>VimroomToggle
@@ -123,7 +128,7 @@ let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
 
-let g:markdown_folding = 1
+let g:markdown_folding = 0
 let g:tex_fold_enabled = 1
 let g:vimsyn_folding = 'af'
 let g:xml_syntax_folding = 1
@@ -171,6 +176,8 @@ au BufRead,BufNewFile *.module set ft=php tw=0
 au BufRead,BufNewFile *.inc set ft=php tw=0
 au BufRead,BufNewFile *.wiki set tw=70
 au BufRead,BufNewFile *.md set tw=70
+au BufRead,BufNewFile *.blade.php set ft=html tw=0
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
 
 
 " Removed these because they hid the cursor for some reason. It worked for
@@ -325,13 +332,16 @@ map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscr
 let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_autowrite = 1
 let g:vim_markdown_folding_level = 1
-let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_override_foldtext= 1
 
-let g:vimwiki_folding='custom'
+let g:vimwiki_folding=''
+
 let g:vimwiki_table_auto_fmt = 0
  let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md' },
 			 \	{'path': '~/Documents/Work/Operations-Docs/',
+            \ 'syntax': 'markdown', 'ext': '.md'},
+ 			\ {'path': '~/Documents/Work/NewArtumiWiki/',
             \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3

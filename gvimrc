@@ -17,14 +17,16 @@ set columns=151
 set guifont=Cascadia\ Mono\ Regular\ 12
 
 " Working Light bg
-set background=light
-colorscheme PaperColor
+"set background=light
+"colorscheme PaperColor
 "colorscheme off
-AirlineTheme Atelier_CaveLight
+"AirlineTheme Atelier_CaveLight
+AirlineTheme ayu_dark
 
 
 " Working Dark bg - I used this for a long time.
-"set background=dark
+set background=dark
+colorscheme Tomorrow-Night-Blue
 "colorscheme PaperColor
 "AirlineTheme Atelier_DuneDark
 
