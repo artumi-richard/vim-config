@@ -6,6 +6,7 @@ set tabstop=4 shiftwidth=4
 set t_Co=256
 set nocompatible              " be iMproved
 set hidden
+set shortmess-=S
 filetype off                  " required!
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -13,7 +14,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'preservim/nerdtree'
 " Themes
 Plugin 'vim-scripts/greenvision'
 Plugin 'camgunz/amber'
@@ -60,7 +61,7 @@ Plugin 'pangloss/vim-javascript'
 " Asyncrhonous syntax highlighting
 Plugin 'w0rp/ale'
 
-let g:ale_sign_column_always = 1
+let g:ale_sign_column_always = 0
 let g:ale_echo_cursor = 1
 let g:ale_open_list = 'onsave'
 let g:ale_php_phpmd_ruleset = 'codesize,unusedcode,design'
@@ -92,7 +93,7 @@ Plugin 'chrisbra/SudoEdit.vim'
 " Fonts for the powerline
 Plugin 'Lokaltog/powerline-fonts'
 " Shows git changes ina  gutter
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 " Candidate for deletion? Used by something else?
 Plugin 'mileszs/ack.vim'
 " Candidate for deletion? Used by something else?
@@ -110,9 +111,12 @@ Plugin 'fatih/vim-go'
 Plugin 'mikewest/vimroom'
 " Speaks for itself!
 Plugin 'vimwiki/vimwiki'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " a grey colour scheme
 Plugin 'phucngodev/mono'
+
+"A red colour scheme
+Plugin 'pcostasgr/red_alert_vim_theme'
 
 call vundle#end()
 filetype plugin indent on
@@ -120,7 +124,12 @@ nnoremap <silent> <Leader>mz <Plug>VimroomToggle
 nnoremap <silent> <Leader>n  :cn
 nnoremap <silent> <Leader>p  :cp
 
+"cd to Current files dir
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
+
+"let g:ctrlp_custom_ignore = 'cacche$'
+"let g:ctrlp_max_files = 20000
 
 nmap zuz <Plug>(FastFoldUpdate)
 let g:fastfold_savehook = 1
@@ -159,8 +168,8 @@ set number
 " let g:Powerline_colorscheme="alight"
 " let g:Powerline_symbols = 'fancy'
 set laststatus=2
-let g:gitgutter_eager = 0
-let g:gitgutter_realtime = 0
+"let g:gitgutter_eager = 0
+"let g:gitgutter_realtime = 0
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>a :Ack
 "nnoremap <leader>e :NERDTree
