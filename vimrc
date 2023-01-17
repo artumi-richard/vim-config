@@ -87,6 +87,11 @@ let g:airline_extensions = ['branch','tabline','fugitiveline','ale']
 " Plugin 'Townk/vim-autoclose'
 " autocmd FileType vimwiki let b:AutoClosePairs = AutoClose#DefaultPairsModified("", "[")
 
+" This ensures that the vim-markdown plugin doesn't control the indent level
+" on vim wiki markdown files in lists.
+autocmd Filetype vimwiki setlocal inde=
+
+
 " Awesome syntax checker.
 " REQUIREMENTS: See :h Syntastic
 " Plugin 'scrooloose/syntastic'
@@ -348,7 +353,8 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_override_foldtext= 1
 
 let g:vimwiki_folding=''
-
+" This ensures that vimwiki only does it's thing on it's own folders.
+let g:vimwiki_global_ext = 0
 let g:vimwiki_table_auto_fmt = 0
  let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md' },
 			 \	{'path': '~/Documents/Work/Operations-Docs/',
