@@ -35,9 +35,6 @@ Plugin 'artumi-richard/vim-colors-off'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'christoomey/vim-tmux-navigator'
 
-
-
-
 Plugin 'epii1/phpcd.vim'
 " Takes you to the same place in a file you last were
 Plugin 'zhimsel/vim-stay'
@@ -56,15 +53,15 @@ Plugin 'tpope/vim-speeddating.git'
 " Makes tables work in text nicely
 Plugin 'godlygeek/tabular'
 " Syntax for markdown
-Plugin 'preservim/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
 " Vim's javascript indenting seems rubbish - hopefully this is the fix
 Plugin 'pangloss/vim-javascript'
 
 " Asyncrhonous syntax highlighting
-Plugin 'dense-analysis/ale'
+Plugin 'w0rp/ale'
 
-let g:ale_sign_column_always = 0
+let g:ale_sign_column_always = 1
 let g:ale_echo_cursor = 1
 let g:ale_open_list = 'onsave'
 let g:ale_php_phpmd_ruleset = 'codesize,unusedcode,design'
@@ -79,7 +76,7 @@ let g:airline_highlighting_cache = 1
 let g:airline#extensions#tabline#ignore_bufadd_pat = '!'
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
-let g:airline_extensions = ['branch','tabline','fugitiveline','ale']
+let g:airline_extensions = ['branch','fugitiveline','ale']
 
 " Autoclose - provides the closing character for these characters - [{(, '" etc
 " 14/06/2017 removed the following plugin as it caused a bug when you pressed the cursor
@@ -118,17 +115,11 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " a grey colour scheme
 Plugin 'phucngodev/mono'
 
-"A red colour scheme
-Plugin 'pcostasgr/red_alert_vim_theme'
-
 call vundle#end()
 filetype plugin indent on
 nnoremap <silent> <Leader>mz <Plug>VimroomToggle
 nnoremap <silent> <Leader>n  :cn
 nnoremap <silent> <Leader>p  :cp
-
-"cd to Current files dir
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 
 "let g:ctrlp_custom_ignore = 'cacche$'

@@ -21,15 +21,17 @@ set guifont=Cascadia\ Mono\ Regular\ 12
 "colorscheme PaperColor
 "colorscheme off
 "AirlineTheme Atelier_CaveLight
-AirlineTheme ayu_dark
+" AirlineTheme ayu_dark
 
 
 " Working Dark bg - I used this for a long time.
-set background=dark
-colorscheme Tomorrow-Night-Blue
+set background=light
+"colorscheme Tomorrow-Night-Blue
 "colorscheme PaperColor
 "AirlineTheme Atelier_DuneDark
-
+"colorscheme jellybeans 
+AirlineTheme Atelier_DuneDark
+colorscheme Atelier_DuneLight
 
 "set background=light
 "colorscheme Atelier_DuneLight
